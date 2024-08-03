@@ -14,6 +14,9 @@
 </head>
 
 <body class="bg-black text-white font-hanken-grotesk pb-10">
+    {{-- TODO: add your portfolio link in here --}}
+    <div class="w-full h-8 bg-red-800/50 flex justify-center items-center">this is an portfolio project with randome
+        fake data and links 👨‍💻</div>
     <div class="px-10">
         <nav class="flex justify-between items-center py-4 border-b border-white/10">
             <div>
