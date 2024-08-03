@@ -13,7 +13,7 @@
         rel="stylesheet">
 </head>
 
-<body class="bg-black text-white font-hanken-grotesk">
+<body class="bg-black text-white font-hanken-grotesk pb-10">
     <div class="px-10">
         <nav class="flex justify-between items-center py-4 border-b border-white/10">
             <div>
@@ -27,14 +27,29 @@
                 <a href="#">Salaries</a>
                 <a href="#">Companies</a>
             </div>
-            <div>
-                <a href="#">Post a Job</a>
-            </div>
+            @auth
+                <div class="space-x-4 font-bold flex">
+                    <a href="/jobs/create">Post a Job</a>
+                    <form action="/login" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Log out</button>
+                    </form>
+                </div>
+            @endauth
+
+            @guest
+                <div class="space-x-4 font-bold">
+                    <a class="'bg-blue-800 rounded font-bold'" href="/register">Register</a>
+                    <a class="'bg-blue-800 rounded font-bold'" href="/login">login</a>
+                </div>
+            @endguest
         </nav>
         <main class="mt-10 max-w-[986px] mx-auto">
             {{ $slot }}
         </main>
     </div>
+
 
 </body>
 
